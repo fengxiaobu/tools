@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>日期范围转换为周数</title>
+</head>
+<body>
+<label for="startDate">
+    <span>起始日期</span>
+    <input type="text" id="startDate" value="" />
+</label>
+<label for="endDate">
+    <span>结束日期</span>
+    <input type="text" id="endDate" value="" />
+</label>
+<span>周数:</span>
+<span id="week"></span>
+</label>
+<span>天数:</span>
+<span id="day_num"></span>
+<script src="./laydate/laydate.js"></script>
+<script>
+function getWeek() {
+    var _start = new Date(document.getElementById('startDate').value);
+    var _end = new Date(document.getElementById('endDate').value);
+    _start = _start.getTime();
+    _end = _end.getTime();
+    var _d = _end - _start;
+    document.getElementById('week').innerHTML = Math.ceil(_d/1000/60/60/24/7)+"("+parseFloat(_d/1000/60/60/24/7).toFixed(2)+")";
+    document.getElementById('day_num').innerHTML = Math.ceil(_d/1000/60/60/24);
+}
+laydate({
+    elem: '#startDate',
+    format: 'YYYY-MM-DD',
+    event: 'focus',
+    istime: false
+});
+laydate({
+    elem: '#endDate',
+    format: 'YYYY-MM-DD',
+    event: 'focus',
+    istime: false,
+    choose: function() {
+        getWeek();
+    }
+});
+</script>
+</body>
+</html>
