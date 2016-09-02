@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RGB与16进制转换</title>
+    <style>
+        label {
+            display: block;
+            height: 40px;
+        }
+        label span {
+            display: inline-block;
+            width: 30px;
+            height: 40px;
+            line-height: 40px;
+        }
+        label input {
+            display: inline-block;
+            width: 100px;
+            height: 20px;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border: 1px solid #aaa;
+        }
+        button {
+            display: block;
+            width: 150px;
+            height: 30px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: none;
+            color: #fff;
+            background: #000;
+            cursor: pointer;
+        }
+        #main {
+            width: 300px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+        .color {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+        .tips {
+            font-size: 12px;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="rgb">
+        <label>
+            <span>R</span>
+            <input type="number" class="rgb-r" maxlength="3">
+        </label>
+        <label>
+            <span>G</span>
+            <input type="number" class="rgb-g" maxlength="3">
+        </label>
+        <label>
+            <span>B</span>
+            <input type="number" class="rgb-b" maxlength="3">
+        </label>
+    </div>
+    <div id="hex">
+        <label>
+            <span>HEX</span>
+            <input type="text" class="hex" maxlength="7">
+        </label>
+    </div>
+    <div class="btn">
+        <button id="rgb2hex">RGB转HEX</button>
+        <button id="hex2rgb">HEX转RGB</button>
+    </div>
+    <div class="color"></div>
+    <div class="rgb"></div>
+    <div class="tips"></div>
+</div>
+<script src="rgb2hex.js"></script>
+<script>
+    var rgb2hex = new RGB2HEX({
+        dom: {
+            'rgb': '.rgb',
+            'rgb_r': '.rgb-r',
+            'rgb_g': '.rgb-g',
+            'rgb_b': '.rgb-b',
+            'hex': '.hex',
+            'color': '.color',
+            'rgb2hex': '#rgb2hex',
+            'hex2rgb': '#hex2rgb',
+            'tips': '.tips'
+        }
+    })
+</script>
+</body>
+</html>
